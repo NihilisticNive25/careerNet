@@ -19,6 +19,9 @@
 
 /*form css*/
 
+.z1{
+  z-index: 1;
+}
 .table{
   table-layout: fixed;
     width: 100%;
@@ -30,8 +33,21 @@
       display: table-row;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
-         
+      justify-content: space-between;
+     
+}
+.tableColumnForm{
+
+max-width: 30em;
+
+}
+
+@media screen and (min-width: 1400px) {
+  .tableColumnForm{
+
+max-width: 40em;
+
+}
 }
 
 .tableColumn{

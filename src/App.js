@@ -1,16 +1,12 @@
 import React from 'react';
 
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Select from 'react-select';
-import OpportunitiesList from './Components/opportunitiesList.js'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Opportunity from './Components/opportunity.js'
 import OpportunityDisplay from './Components/opportunityDisplay.js'
 
 const initialState = {
-   
-      opportunitiesList : [],
-      opportunity : {},
+         opportunity : {},
        selectedBackgrounds : [],
       selectedSkills : [],     
 }
@@ -25,19 +21,11 @@ componentWillMount = () => {
 
   document.title = "Job Search";
 
-  let getOpportunity = `http://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2/opportunities?access_token=dd0df21c8af5d929dff19f74506c4a8153d7acd34306b9761fd4a57cfa1d483c&page=1&per_page=20`
-      fetch(getOpportunity)
-      .then(res => res.json())
-      .then((result) => {        
-      this.setState({opportunitiesList : result.data})      
-      })
-      .catch(err => console.log(err));
-
   let getOpportunityByID = `https://api-staging.aiesec.org/v2/opportunities/6125?access_token=dd0df21c8af5d929dff19f74506c4a8153d7acd34306b9761fd4a57cfa1d483c`
       fetch(getOpportunityByID)
       .then(res => res.json())
       .then((result) => {         
-      this.setState({opportunity : result},() => {console.log(this.state.opportunity.description)})
+      this.setState({opportunity : result})
        
       let bacgroundObj = [];
             result.backgrounds.forEach(x =>bacgroundObj.push({value : x.id, label : x.name}) )            
@@ -89,19 +77,16 @@ handleSelectChange = name => value => {
   this.state[name] = value;                       
   this.setState({name : value});
   
-console.log(this.state.opportunity)
-console.log(this.state.backgrounds)
-console.log(this.state.skills)
 };
 
 handleLocationChange = (e) => {
-console.log(e)
+
 let opportunity = Object.assign({}, this.state.opportunity); 
      this.setState({opportunity : {...opportunity,"role_info":{ 
        ...opportunity["role_info"],
         "city":e.name
     }}});      
-console.log(this.state.opportunity["role_info"])
+
   };
 
   handleDateChange = name => value  => {
@@ -118,12 +103,12 @@ console.log(this.state.opportunity["role_info"])
     const target = event.target;
     const value =  target.value;
     const name = target.name;
-console.log(name); console.log(value);
+
     let opportunity = Object.assign({}, this.state.opportunity);         
     opportunity[name] = value;   
                          
     this.setState({opportunity});
-console.log(this.state.opportunity) 
+
   }
 
 
@@ -144,7 +129,7 @@ console.log(this.state.opportunity)
 
   render() {
   	
-    const {opportunitiesList,opportunity,backgroundOptions,skillOptions, backgrounds,skills} = this.state; 
+    const {opportunity,backgroundOptions,skillOptions, backgrounds,skills} = this.state; 
 
      return (
       <Router  >
@@ -158,7 +143,6 @@ console.log(this.state.opportunity)
          skillOptions = {skillOptions}
          backgrounds = {backgrounds} 
          skills = {skills} 
-         apply={true}
          handleDateChange = {this.handleDateChange}
          handleChange={this.handleChange}
          handleSelectChange = {this.handleSelectChange}
