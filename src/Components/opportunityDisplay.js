@@ -233,7 +233,7 @@ this.setState({OpportunityID});
 
 <div className="table mid-gray pa3 pa4-ns center ba">
     <div className="tableRow ">
-          <div className="w-100 w-100-m w-50-l tableColumn">
+          <div className="w-100 tableColumn">
             <label  className="labelCSS">LOCATION </label>
             <div className="inputStyle w-100">
            <p className="measure lh-copy ">
@@ -241,20 +241,7 @@ this.setState({OpportunityID});
             </p>
           </div>                
           </div>
-
-          <div className="w-100 w-100-m w-50-l tableColumn" >
-          
-            <label  className="labelCSS">EARLIEST START DATE</label>
-            <div className="inputStyle w-100">
-            <p className="measure lh-copy ">
-            {opportunity.earliest_start_date ? opportunity.earliest_start_date.substr(0,10) : true}
-            </p>
-                
-            
           </div>
-          </div>
-          
-        </div>
 
         <div className="tableRow">
         
@@ -281,23 +268,23 @@ this.setState({OpportunityID});
           </div>
           </div>
         </div>
-         <div className="tableRow">
+        <div className="tableRow">
         
 
-          <div className="w-100 w-30-l tableColumn">
-            <label  className="labelCSS">SALARY</label>
-            <div className=" w-100">
-        <p className="measure lh-copy ">
-            {opportunity.specifics_info ? opportunity.specifics_info.salary : true}
+          <div className="w-100  w-50-l tableColumn">
+            <label  className="labelCSS">EARLIEST START DATE</label>
+            <div className="inputStyle w-100">
+            <p className="measure lh-copy ">
+            {opportunity.earliest_start_date ? opportunity.earliest_start_date.substr(0,10) : true}
             </p>
                 
             
           </div>
           </div>
-          <div className="w-100 w-30-l tableColumn" >
+          <div className="w-100  w-50-l tableColumn" >
           
-            <label  className="labelCSS">DURATION</label>
-            <div className=" w-100">
+             <label  className="labelCSS">DURATION</label>
+            <div className="inputStyle w-100">
              <p className="measure lh-copy">
             {opportunity.project_duration} weeks
             </p>
@@ -305,10 +292,25 @@ this.setState({OpportunityID});
            
           </div>
           </div>
-           <div className="w-100 w-30-l tableColumn" >
+        </div>
+         <div className="tableRow">
+        
+
+          <div className="w-100 w-50-l tableColumn">
+            <label  className="labelCSS">SALARY</label>
+            <div className="inputStyle w-100">
+        <p className="measure lh-copy ">
+            {opportunity.specifics_info ? opportunity.specifics_info.salary : true}
+            </p>
+                
+            
+          </div>
+          </div>
+          
+           <div className="w-100 w-50-l tableColumn" >
           
             <label  className="labelCSS">POSITION</label>
-            <div className=" w-100">
+            <div className="inputStyle w-100">
              <p className="measure lh-copy">
             {opportunity.available_openings}
             </p>
@@ -317,7 +319,7 @@ this.setState({OpportunityID});
           </div>
           </div>
         </div>
-        <div className="inputStyle w-100"></div>
+        
         <div className="center ">
         <a className="f6   link dim br1 ph5 pv2 mb2 dib white bg-blue" href={`/editOpportunity/${this.state.OpportunityID}`}>Edit</a>
         </div>
