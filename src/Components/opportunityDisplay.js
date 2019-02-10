@@ -237,7 +237,7 @@ this.setState({OpportunityID});
             <label  className="labelCSS">LOCATION </label>
             <div className="inputStyle w-100">
            <p className="measure lh-copy ">
-            {opportunity.location}
+            {opportunity.role_info? opportunity.role_info.city : ""}
             </p>
           </div>                
           </div>

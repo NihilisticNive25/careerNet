@@ -322,7 +322,7 @@ const updateOpportunity = (e) => {
          
  		<div className="tableRow  ph3 pb3">
 	        <div className="w-90 w-40-m w-50-l tableColumnForm">
-	          <label  className="labelCSS">Background <span className="normal black-60">(In dollars)</span>  </label>
+	          <label  className="labelCSS">Backgrounds </label>
             <Select
             isMulti
           value={backgrounds}          
