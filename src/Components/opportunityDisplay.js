@@ -9,9 +9,10 @@ import React from 'react'
 
 
 let backgroundListItems;
-      let skillListItems;
-      let citizenshipListItems;
-      let languagesListItems;
+let skillListItems;
+let citizenshipListItems;
+let languagesListItems;
+
 class opportunityDisplay extends React.Component  {
 
   constructor(props){

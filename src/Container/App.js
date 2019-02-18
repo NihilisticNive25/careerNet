@@ -5,17 +5,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Opportunity from '../Components/opportunity.js'
 import OpportunityDisplay from '../Components/opportunityDisplay.js'
 
-const initialState = {
-         opportunity : {},
-       selectedBackgrounds : [],
-      selectedSkills : [], 
-      OpportunityID : "" ,   
-}
 class App extends React.Component {
 
 	constructor(){
 		super()
-		this.state = initialState;
 	}
 
 componentDidMount = () => {
@@ -25,8 +18,6 @@ componentDidMount = () => {
 
 
   render() {
-  	
-    const {opportunity,backgroundOptions,skillOptions, backgrounds,skills} = this.state; 
 
      return (
       <Router  >

@@ -68,7 +68,7 @@ componentDidMount = () => {
 
 handleSelectChange = name => value => {
  
-  let opportunity = Object.assign({}, this.state.opportunity);
+  const opportunity = Object.assign({}, this.state.opportunity);
      let resetObj = [];
         value.forEach(x =>resetObj.push({id : x.value, name : x.label, "option": "preferred", "level": 0}) ) 
 
@@ -84,7 +84,7 @@ handleSelectChange = name => value => {
 
 handleLocationChange = (e) => {
 
-let opportunity = Object.assign({}, this.state.opportunity); 
+const opportunity = Object.assign({}, this.state.opportunity); 
      this.setState({opportunity : {...opportunity,"role_info":{ 
        ...opportunity["role_info"],
         "city":e.name
@@ -94,7 +94,7 @@ let opportunity = Object.assign({}, this.state.opportunity);
 
   handleDateChange = name => value  => {
 
-    let opportunity = Object.assign({}, this.state.opportunity);  
+    const opportunity = Object.assign({}, this.state.opportunity);  
     let dateformat = new Date(value);
     opportunity[name] = dateformat.toISOString(); 
     this.setState({opportunity});      
@@ -107,7 +107,7 @@ let opportunity = Object.assign({}, this.state.opportunity);
     const value =  target.value;
     const name = target.name;
 
-    let opportunity = Object.assign({}, this.state.opportunity);         
+    const opportunity = Object.assign({}, this.state.opportunity);         
     opportunity[name] = value;   
                          
     this.setState({opportunity});
@@ -122,7 +122,7 @@ let opportunity = Object.assign({}, this.state.opportunity);
     const name = target.name;
     const keys = name.split('.');
 
-    let opportunity = Object.assign({}, this.state.opportunity);         
+    const opportunity = Object.assign({}, this.state.opportunity);         
     opportunity[keys[0]][keys[1]] = value;                      
     this.setState({opportunity});
  
@@ -134,8 +134,8 @@ let opportunity = Object.assign({}, this.state.opportunity);
 
 let url = `/opportunity/${opportunity.id}`;
 
-const  date_diff_indays = (applicationdate)=>  {
-let dt1 = new Date(applicationdate);
+const  date_diff_indays = (applicationDate)=>  {
+let dt1 = new Date(applicationDate);
 let dt2 = new Date();
 return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate()) ) /(1000 * 60 * 60 * 24));
 }
