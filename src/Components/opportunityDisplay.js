@@ -1,11 +1,11 @@
 import React from 'react'
- import Background from './jobCoverPic.jpeg';
- import Food from './food.png';
- import Hotel from './hotel.png';
- import Laptop from './laptop.png';
- import location from './map-marker.png';
- import unavailable from './no.png';
- import available from './yes.png';
+ import Background from '../images/jobCoverPic.jpeg';
+ import Food from '../images/food.png';
+ import Hotel from '../images/hotel.png';
+ import Laptop from '../images/laptop.png';
+ import location from '../images/map-marker.png';
+ import unavailable from '../images/no.png';
+ import available from '../images/yes.png';
 
 
 let backgroundListItems;
@@ -27,7 +27,7 @@ class opportunityDisplay extends React.Component  {
 
 }
 
-componentWillMount = () => {
+componentDidMount = () => {
 
 const { OpportunityID } = this.props.match.params
 this.setState({OpportunityID});

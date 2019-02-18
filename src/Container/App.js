@@ -2,8 +2,8 @@ import React from 'react';
 
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Opportunity from './Components/opportunity.js'
-import OpportunityDisplay from './Components/opportunityDisplay.js'
+import Opportunity from '../Components/opportunity.js'
+import OpportunityDisplay from '../Components/opportunityDisplay.js'
 
 const initialState = {
          opportunity : {},
@@ -18,7 +18,7 @@ class App extends React.Component {
 		this.state = initialState;
 	}
 
-componentWillMount = () => {
+componentDidMount = () => {
   document.title = "Job Search";
 }
 

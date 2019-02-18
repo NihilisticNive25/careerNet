@@ -7,6 +7,7 @@ import { Redirect } from 'react-router-dom';
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+
  class opportunity extends React.Component {
  constructor(props){
   super(props);
@@ -21,7 +22,7 @@ import { withRouter } from 'react-router-dom';
   }
 }
 
-componentWillMount = () => {
+componentDidMount = () => {
 
   let getOpportunityByID = `https://api-staging.aiesec.org/v2/opportunities/${this.props.match.params.OpportunityID}?access_token=dd0df21c8af5d929dff19f74506c4a8153d7acd34306b9761fd4a57cfa1d483c`
       fetch(getOpportunityByID)
@@ -74,7 +75,7 @@ handleSelectChange = name => value => {
   opportunity[name] = {};
   opportunity[name] = resetObj;
   this.setState({opportunity});
-
+  //remove options
   this.state[name]= [];
   this.state[name] = value;                       
   this.setState({name : value});
